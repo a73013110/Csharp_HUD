@@ -20,7 +20,7 @@ Below is the HUD demo, the message at the center and there is progress bar arrou
 ```<C#>
 using Csharp_HUD;
 hud = new HUD();	// New HUD
-hud.SetMsg([Insert the message title], [Insert the message detail]);	// Set the message title and detail.
+hud.SetMsg("Insert the message title", "Insert the message detail");	// Set the message title and detail.
 hud.Show();	// Show HUD window
 hud.StartDuration();	// Start progressbar animation
 ```
