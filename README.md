@@ -5,7 +5,7 @@ A beautiful GUI and animation to show up notification
 This solution contains three projects.
   1. Csharp_HUD: [Main project] implement all HUD features and compile as DLL file.
   2. WPF_HUDTest: [Test project] implement GUI button_click to open the HUD.
-  3. CA_HUDTest: [Test project] implement console application to open the HUD.  4. 
+  3. CA_HUDTest: [Test project] implement console application to open the HUD.
 
 ## Demo
 Below is the HUD demo, the message at the center and there is progress bar arround that.
@@ -18,6 +18,7 @@ Below is the HUD demo, the message at the center and there is progress bar arrou
   3. Add reference -> Browse the file -> Select **Csharp_HUD.dll**
   4. Use the code down below
 ```<C#>
+using Csharp_HUD;
 hud = new HUD();	// New HUD
 hud.SetMsg([Insert the message title], [Insert the message detail]);	// Set the message title and detail.
 hud.Show();	// Show HUD window
