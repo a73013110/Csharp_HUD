@@ -27,15 +27,15 @@ hud.StartDuration();	// Start progressbar animation
 
 ## API
 There are some API in **HUD.API.cs** in project **Csharp_HUD** you can take a look and re-write it by yourself depend on the requirement.
-  1. Get the message model which contains 4 main properties (Message Title, Detail, Duration, and DurationCompleted).
-  >hud.Message
+1. Get the message model which contains 4 main properties (Message Title, Detail, Duration, and DurationCompleted).
+>hud.Message
 
-  ¡° To check whether animation of progressbar is finish.
-  >hud.Message.isMsgDurationCompleted
+2. To check whether animation of progressbar is finish.
+>hud.Message.isMsgDurationCompleted
   
-  2. Thd function which directly set the message.
-  >hud.SetMsg("MsgTitle", "MsgDetail") <br /> 
-  >hud.SetMsg("MsgTitle", "MsgDetail", Duration)
+3. Thd function which directly set the message.
+>hud.SetMsg("MsgTitle", "MsgDetail") <br /> 
+>hud.SetMsg("MsgTitle", "MsgDetail", Duration)
 
-  3. Start the animation of progressbar.
-  >hud.StartDuration();
+4. Start the animation of progressbar.
+>hud.StartDuration();
