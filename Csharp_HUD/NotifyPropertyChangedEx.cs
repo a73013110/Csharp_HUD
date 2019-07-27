@@ -9,7 +9,7 @@ namespace Csharp_HUD
     public class NotifyPropertyChangedEx : INotifyPropertyChanged
     {
         /// <summary>
-        /// The event handler to update the UI text
+        /// The event handler update the UI text
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
@@ -28,14 +28,28 @@ namespace Csharp_HUD
         }
 
         /// <summary>
-        /// The event handler to update the behavior of Duration
+        /// The event handler update the behavior of Duration
         /// </summary>
         public event EventHandler MsgDurationChanged;
-        protected void SetDurationProperty<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
+        protected void SetDurationProperty(ref int field, int value, [CallerMemberName] string propertyName = null)
         {
             field = value;
             var handler = this.MsgDurationChanged;
             if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
+        /// The event handler update the value and do something when Message is completed
+        /// </summary>
+        public event EventHandler MsgDurationCompleted;
+        protected void SetDurationCompletedProperty(ref bool field, bool value, [CallerMemberName] string propertyName = null)
+        {
+            field = value;
+            if (field)  // If Duration is completed
+            {
+                var handler = this.MsgDurationCompleted;
+                if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
     }
 }

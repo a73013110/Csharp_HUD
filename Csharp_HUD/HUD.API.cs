@@ -30,7 +30,8 @@ namespace Csharp_HUD
 
         public void StartDuration()
         {
-            this.Message.MsgDuration = this.Message.MsgDuration == 0 ? 3 : this.Message.MsgDuration;    // if Duration = 0, set it as default (3 seconds)
+            this.Message.MsgDuration = (this.Message.MsgDuration == 0) ? 3 : this.Message.MsgDuration;    // if Duration = 0, set it as default (3 seconds)
+            this.Message.IsMsgDurationCompleted = false;    // Updata the tag whether duration is completed
             // There are 5 line which compose progressbar. Calaulate each line animation time (Actually corners don't perform animation)
             DURATION = new Duration(new TimeSpan(0, 0, 0, 0, this.Message.MsgDuration * 1000 / line.Length));
             DrawProgressBar();  // Create progressbar

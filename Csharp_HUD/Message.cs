@@ -1,30 +1,39 @@
-﻿namespace Csharp_HUD
+﻿using System;
+
+namespace Csharp_HUD
 {
     /// <summary>
     /// Like a MVC Model, store Message which can be get and set
     /// </summary>
     public class Message : NotifyPropertyChangedEx
     {
-        // 大標題(GUI上方訊息)
+        // Message title(Upper in GUI)
         private string msgTitle;
         public string MsgTitle
         {
             get { return msgTitle; }
             set { this.SetProperty(ref msgTitle, value); }
         }
-        // 詳細內容(GUI下方訊息)
+        // Message detail (Below in GUI)
         private string msgDetail;
         public string MsgDetail
         {
             get { return msgDetail; }
             set { this.SetProperty(ref msgDetail, value); }
         }
-        // 通知顯示持續時間
+        // Message show up duration
         private int msgDuration;
         public int MsgDuration
         {
             get { return msgDuration; }
             set { this.SetDurationProperty(ref msgDuration, value); }
+        }
+        // The tag whether the progressbar animation is completed
+        private bool isMsgDurationCompleted;
+        public bool IsMsgDurationCompleted
+        {
+            get { return isMsgDurationCompleted; }
+            set { this.SetDurationCompletedProperty(ref isMsgDurationCompleted, value); }
         }
     }
 }

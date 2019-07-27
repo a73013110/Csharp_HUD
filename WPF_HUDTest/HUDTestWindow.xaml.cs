@@ -52,6 +52,7 @@ namespace WPF_HUDTest
             {
                 Console.WriteLine("HUD already exist");
             }
+            _ = AbortApp(this, hud);
         }
 
         /// <summary>
@@ -68,6 +69,18 @@ namespace WPF_HUDTest
                 hud.SetMsg(msgTitle[i], msgDetail[i]);
                 await Task.Delay(1000);
             }
+        }
+
+        /// <summary>
+        /// If progress bar complete, than abort the main window
+        /// </summary>
+        private async Task AbortApp(Window window, HUD hud)
+        {            
+            while (!hud.Message.IsMsgDurationCompleted)
+            {
+                await Task.Delay(1000);
+            }
+            window.Close();
         }
     }
 }

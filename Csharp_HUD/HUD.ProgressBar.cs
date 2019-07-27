@@ -109,9 +109,12 @@ namespace Csharp_HUD
             Storyboard.SetTargetProperty(daY, new PropertyPath("(Line.Y1)"));
             storyBoard.Children.Add(daX);
             storyBoard.Children.Add(daY);
+            // Remove the corner next to the line
             if (cornerNum < corner.Length) storyBoard.Completed += (s, e) => corner[cornerNum].Segments.Clear();
+            // If there is a line next to the corner, keep going.
             if (lineNum + 1 < line.Length) storyBoard.Completed += (s, e) => line[lineNum + 1].BeginStoryboard(SetDurationAnimation(lineNum + 1, cornerNum + 1));
-            else if (lineNum + 1 == line.Length) storyBoard.Completed += (s, e) => this.Close();
+            // The end of the progressbar
+            else if (lineNum + 1 == line.Length) storyBoard.Completed += (s, e) => { this.Message.IsMsgDurationCompleted = true; };
             return storyBoard;
         }
         #endregion
